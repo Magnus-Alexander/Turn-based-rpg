@@ -10,16 +10,22 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+   
 }
 
 button{
     height: 50px;
-    width: 150px;
+    width: 235px;
     font-size: 30px;
     background-color: #3c3c3b;
+    color: #e7e5e5;
 }
 h1{
 font-size: 80px;
+}
+
+p{
+    font-size: 60px;
 }
 
 #page1{
@@ -34,8 +40,21 @@ font-size: 80px;
 }
 
 #page2{
-    background-color: rgb(116, 24, 24);
+    background-color: #00a7e1;
     font-size: 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    color: #14110f;
+}
+
+#giveUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
