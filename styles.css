@@ -58,3 +58,40 @@ p{
     justify-content: center;
     align-items: center;
 }
+
+
+
+#inventoryContent{
+    font-size: 50px;
+    background-color: #00bfb2;
+    border-style: solid;
+}
+#inventoryContent2{
+    font-size: 50px;
+    background-color: #00bfb2;
+    border-style: solid;
+}
+#inventoryContent3{
+    font-size: 50px;
+    background-color: #00bfb2;
+    border-style: solid;
+}
+
+#monster{
+    font-size: 50px;
+}
+
+/* #inventoryContent2 button{
+background-color: #14110f;
+height: 100px;
+width: 20px;
+} */
+
+#pHealth{
+    font-size: 50px;
+    display: block;
+}
+#pHealth2{
+    font-size: 50px;
+    display: block;
+}

@@ -18,8 +18,9 @@
     <div id="page2">
       <You>You have just set out on an adventure. <br> You are outside of a forest. <br>To begin your journey: start walking.</p>
       <button onclick="walkButton()">Walk</button>
-      <button onclick="inventoryButton()">Check inventory</button>
+      <button onclick="inventoryButton()">Inventory</button>
       <button onclick="gameOver()">give up</button>
+      <div id="pHealth"></div>
     </div>
     <div id="giveUp">
       <h1>Game over</h1>
@@ -29,15 +30,21 @@
       <H1>
         Inventory
       </H1>
-      <div id="inventory()"></div>
-      <button onclick="back()">Back</button>
+      <div id="inventory()">
+        <div id="inventoryContent2"></div>
+        <div id="inventoryContent"></div>
+        <div id="inventoryContent3"></div>
+        <button onclick="back()">Back</button>
+      </div>
     </div>
    
     <div id="page3">
-      <h1>You tripped and died</h1>
-      <h1>Game over</h1>
-      <button onclick="window.location.reload();">Try again</button>
-      <!-- <button onclick="back()">Back</button> -->
+      <div id="monster"></div>
+      <div id="mHealth"></div>
+      <button>Attack</button>
+      <button onclick="inventoryButton()">Inventory</button>
+      <div id="pHealth2"></div>
     </div>
+    
   </body>
 </html>
