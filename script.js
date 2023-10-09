@@ -213,6 +213,7 @@ const enemyAttack = () => {
 
 const enemyDefeated = () => {
     page = 4
+    inventoryPage = 4
     winScreen.style.display = "block"
     page3.style.display = "none"
     winBattle = 1
