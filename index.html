@@ -31,20 +31,30 @@
         Inventory
       </H1>
       <div id="inventory()">
+        <button onclick="usePotion()">Use potion</button>
         <div id="inventoryContent2"></div>
         <div id="inventoryContent"></div>
         <div id="inventoryContent3"></div>
         <button onclick="back()">Back</button>
       </div>
     </div>
-   
     <div id="page3">
       <div id="monster"></div>
+      <div id="hide">
       <div id="mHealth"></div>
-      <button>Attack</button>
+      <div id="playerAttack"></div>
+      <div id="newEnemyHealth"></div>
+      <div id="eAttack"></div>
+    </div>
+      <button onclick="damage()">Attack</button>
       <button onclick="inventoryButton()">Inventory</button>
       <div id="pHealth2"></div>
     </div>
-    
+    <div id="winScreen">
+      <h1>You won!</h1>
+      <div #=""></div>
+      <button onclick="walkButton()">Walk</button>
+      <button onclick="inventoryButton()">Inventory</button>
+    </div>
   </body>
 </html>
