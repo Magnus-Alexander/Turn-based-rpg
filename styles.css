@@ -1,110 +1,105 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
-body{
-    background-color: #23ce6b;
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-   
-}
-
-button{
-    height: 50px;
-    width: 235px;
-    font-size: 30px;
-    background-color: #3c3c3b;
-    color: #e7e5e5;
-}
-h1{
-font-size: 80px;
+body {
+  background-color: #23ce6b;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-p{
-    font-size: 60px;
+button {
+  height: 50px;
+  width: 235px;
+  font-size: 30px;
+  background-color: #3c3c3b;
+  color: #e7e5e5;
+}
+h1 {
+  font-size: 80px;
 }
 
-#page1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+p {
+  font-size: 60px;
 }
 
-#type{
-    font-size: 80px;
+#page1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-#page2{
-    background-color: #00a7e1;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    color: #14110f;
+#type {
+  font-size: 80px;
 }
 
-#giveUp{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#page2 {
+  background-color: #00a7e1;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  color: #14110f;
 }
 
-#page3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#giveUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-#inventoryContent{
-    font-size: 50px;
-    background-color: #00bfb2;
-    border-style: solid;
-}
-#inventoryContent2{
-    font-size: 50px;
-    background-color: #00bfb2;
-    border-style: solid;
+#page3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-#inventoryContent3{
-    font-size: 50px;
-    background-color: #00bfb2;
-    border-style: solid;
+#inventoryContent {
+  font-size: 50px;
+  background-color: #00bfb2;
+  border-style: solid;
+}
+#inventoryContent2 {
+  font-size: 50px;
+  background-color: #00bfb2;
+  border-style: solid;
 }
 
-
-#monster{
-    font-size: 50px;
+#inventoryContent3 {
+  font-size: 50px;
+  background-color: #00bfb2;
+  border-style: solid;
 }
 
-#pHealth{
-    font-size: 30px;
-    display: block;
-}
-#pHealth2{
-    font-size: 30px;
-    display: block;
+#monster {
+  font-size: 50px;
 }
 
-#mHealth{
-    font-size: 30px;
+#pHealth {
+  font-size: 30px;
+  display: block;
+}
+#pHealth2 {
+  font-size: 30px;
+  display: block;
 }
 
-#playerAttack{
-    font-size: 30px;
+#mHealth {
+  font-size: 30px;
 }
 
-#newEnemyHealth{
-    font-size: 30px;
+#playerAttack {
+  font-size: 30px;
 }
 
-#eAttack{
-    font-size: 30px;
+#newEnemyHealth {
+  font-size: 30px;
+}
+
+#eAttack {
+  font-size: 30px;
 }
