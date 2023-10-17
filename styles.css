@@ -67,6 +67,7 @@ p {
   font-size: 50px;
   background-color: #00bfb2;
   border-style: solid;
+  background-image: url(public/healingPotion.png);
 }
 
 #inventoryContent3 {
@@ -81,11 +82,20 @@ p {
 
 #pHealth {
   font-size: 30px;
-  display: block;
 }
 #pHealth2 {
   font-size: 30px;
-  display: block;
+}
+
+#pHealth3 {
+  font-size: 30px;
+}
+#pHealth4 {
+  font-size: 30px;
+}
+
+#reward{
+  font-size: 30px;
 }
 
 #mHealth {
@@ -101,5 +111,20 @@ p {
 }
 
 #eAttack {
+  font-size: 30px;
+}
+
+#xp2{
+  font-size: 30px;
+}
+
+#xp3{
+  font-size: 30px;
+}
+#xp4{
+  font-size: 30px;
+}
+
+#experienceReward{
   font-size: 30px;
 }

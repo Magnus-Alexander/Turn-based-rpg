@@ -10,28 +10,48 @@ let giveUp = document.getElementById("giveUp")
 let pHealth = document.getElementById("pHealth")
 let pHealth2 = document.getElementById("pHealth2")
 let pHealth3 = document.getElementById("pHealth3")
+let pHealth4 = document.getElementById("pHealth4")
 let mHealth = document.getElementById("mHealth")
 let playerAttack = document.getElementById("playerAttack")
 let newEnemyHealth = document.getElementById("newEnemyHealth")
 let eAttack = document.getElementById("eAttack")
 let reward = document.getElementById("reward")
+let xp = document.getElementById("xp")
+let xp2 = document.getElementById("xp2")
+let xp3 = document.getElementById("xp3")
+let xp4 = document.getElementById("xp4")
+let experienceReward = document.getElementById("experienceReward")
 
 let goblinAttack = Math.round(Math.random() * 10)
 let skeletonAttack = Math.round(Math.random() * 13)
 let giantAttack = Math.round(Math.random() * 17)
+let hobgoblinAttack = Math.round(Math.random() * 15)
+let orcAttack = Math.round(Math.random() * 20)
 
-let monsters = ["goblin", "skeleton", "giant", ""]
+let monsters = ["goblin", "skeleton", "giant", "hobgoblin", "orc"]
 let goblinHealth = 25
 let skeletonHealth = 40
 let giantHealth = 60
+let hobgoblinHealth = 45
+let orcHealth = 70
+
+
 let randomMonster = Math.round(Math.random() * 2)
+let randomMonster2 = Math.round(Math.random() * 4)
 
 let goblinReward = Math.round(Math.random() * 1 + 1)
 let skeletonReward = Math.round(Math.random() * 2 + 1)
 let giantReward = Math.round(Math.random() * 3 + 1)
 
+let goblinXp = 100
+let skeletonXp = 200
+let giantXp = 400
+let hobgoblinXp = 250
+let orcXp = 600
+
 
 let playerHealth = 50
+let experiencePoints = 0
 let classType = 0
 let page = 0
 let inventoryPage = 0
@@ -59,6 +79,8 @@ page2.style.display = "none"
 page3.style.display = "none"
 winScreen.style.display = "none"
 
+
+
 const inventoryButton = () => {
     page2.style.display = "none"
     type.style.display = "none"
@@ -68,6 +90,7 @@ const inventoryButton = () => {
     inventory()
     page == 3 ? page3.style.display = "none" :
         console.log("")
+    xp4.textContent = `${"xp: "}${experiencePoints}`
 }
 
 const inventory = () => {
@@ -80,9 +103,11 @@ const inventory = () => {
                 inventoryContent3.textContent = arrowSent) :
                 classType == 0 ? console.log(classType) :
                     console.log("error")
+    pHealth3.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
 }
 
 const usePotion = () => {
+    potionSent = potions + " potions"
     potions > 0 && inventoryPage == 3 ?
         (potions--, addHealth(),
             goblinAttack = Math.round(Math.random() * 10),
@@ -100,6 +125,7 @@ const usePotion = () => {
         potions >= 0 ? inventoryContent2.textContent = potionSent :
             potions == 0 ? (potions = 0, inventoryContent2.textContent = potionSent) :
                 console.log("error")
+    pHealth3.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
 }
 
 const addHealth = () => {
@@ -123,16 +149,18 @@ const walkButton = () => {
     pHealth.style.display = "block"
     monster.textContent = `${"A "}${monsters[randomMonster]} ${"suddenly appears"} `
     pHealth2.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
+    xp2.textContent = `${"xp: "}${experiencePoints}`
     winBattle > 0 ? (winScreen.style.display = "none",
         monster.style.display = "block",
         hide.style.display = "none",
         goblinHealth = 25,
         skeletonHealth = 40,
-        giantHealth = 80) :
+        giantHealth = 60) :
         console.log("")
 }
 
 const hideButton = () => {
+    xp.textContent = `${"xp: "}${experiencePoints}`
     let page1 = document.getElementById("page1")
     page1.style.display = "none"
     page = 2
@@ -162,7 +190,10 @@ const enemyDefeated = () => {
             reward.textContent = `${"The goblin dropped"} ${goblinReward} ${" potions"}`,
             console.log(`${"you now have "} ${potions} ${" potions"}`),
             inventoryContent2.textContent = potionSent,
-            randomMonster = Math.round(Math.random() * 2)) :
+            randomMonster = Math.round(Math.random() * 2),
+            experiencePoints = experiencePoints += goblinXp,
+            xp3.textContent = `${"xp: "}${experiencePoints}`,
+            experienceReward.textContent = `${"You gained "} ${goblinXp} ${" experience points"} `) :
         randomMonster == 1 ?
             (playerHealth = playerHealth += skeletonAttack,
                 console.log(`${"you have "}${potions} ${" potions"}`),
@@ -171,7 +202,10 @@ const enemyDefeated = () => {
                 reward.textContent = `${"The skeleton dropped"} ${skeletonReward} ${" potions"}`,
                 console.log(`${"you now have "} ${potions} ${" potions"}`),
                 inventoryContent2.textContent = potionSent,
-                randomMonster = Math.round(Math.random() * 2)) :
+                randomMonster = Math.round(Math.random() * 2),
+                experiencePoints = experiencePoints += skeletonXp,
+                xp3.textContent = `${"xp: "}${experiencePoints}`,
+                experienceReward.textContent = `${"You gained "} ${skeletonXp} ${" experience points"} `) :
             randomMonster == 2 ?
                 (playerHealth = playerHealth += giantAttack,
                     console.log(playerHealth),
@@ -181,7 +215,10 @@ const enemyDefeated = () => {
                     reward.textContent = `${"The giant dropped"} ${giantReward} ${" potions"}`,
                     console.log(`${"you now have "} ${potions} ${" potions"}`),
                     inventoryContent2.textContent = potionSent,
-                    randomMonster = Math.round(Math.random() * 2)) :
+                    randomMonster = Math.round(Math.random() * 2),
+                    experiencePoints = experiencePoints += giantXp,
+                    xp3.textContent = `${"xp: "}${experiencePoints}`,
+                    experienceReward.textContent = `${"You gained "} ${giantXp} ${" experience points"} `) :
                 console.log("error")
 }
 
@@ -194,6 +231,8 @@ const win = () => {
     goblinHealth <= 0 || skeletonHealth <= 0 || giantHealth <= 0 ?
         enemyDefeated() :
         console.log("")
+    myTimeout4 = setTimeout(playerHealth4, 2000)
+    xp3.textContent = `${"xp: "}${experiencePoints}`
 }
 
 const warrior = () => {
@@ -229,7 +268,8 @@ const back = () => {
         page == 3 ?
             page3.style.display = "block" :
             page == 4 ?
-                winScreen.style.display = "block" :
+                (winScreen.style.display = "block",
+                    pHealth4.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `) :
                 console.log("")
 }
 
@@ -297,4 +337,9 @@ const enemyAttack = () => {
                     pHealth2.textContent = `${classArray[classType]} ${"hp: "}${playerHealth -= giantAttack} `,
                     buttonPress = 0) :
                 console.log("Error")
+}
+
+
+const playerHealth4 = () => {
+    pHealth4.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
 }
