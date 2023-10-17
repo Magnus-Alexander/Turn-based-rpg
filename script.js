@@ -47,11 +47,11 @@ let goblinReward = Math.round(Math.random() * 1 + 1)
 let skeletonReward = Math.round(Math.random() * 2 + 1)
 let giantReward = Math.round(Math.random() * 3 + 1)
 
-let goblinXp = 100
-let skeletonXp = 200
-let giantXp = 400
-let hobgoblinXp = 250
-let orcXp = 600
+let goblinXp = 10
+let skeletonXp = 20
+let giantXp = 40
+let hobgoblinXp = 25
+let orcXp = 60
 
 
 let playerHealth = 50
@@ -61,6 +61,7 @@ let classType = 0
 let page = 0
 let inventoryPage = 0
 let damageNumber = Math.round(Math.random() * 20)
+let damageNumber2 = damageNumber + 5
 let buttonPress = 0
 let winBattle = 0
 
@@ -193,11 +194,8 @@ const enemyDefeated = () => {
     winBattle = 1
     randomMonster == 0 ?
         (playerHealth = playerHealth += goblinAttack,
-            console.log(`${"you have "}${potions} ${" potions"}`),
-            console.log(goblinReward),
             potions = potions += goblinReward,
             reward.textContent = `${"The goblin dropped"} ${goblinReward} ${" potions"}`,
-            console.log(`${"you now have "} ${potions} ${" potions"}`),
             inventoryContent2.textContent = potionSent,
             randomMonster = Math.round(Math.random() * 2),
             experiencePoints = experiencePoints += goblinXp,
@@ -205,11 +203,8 @@ const enemyDefeated = () => {
             experienceReward.textContent = `${"You gained "} ${goblinXp} ${" experience points"} `) :
         randomMonster == 1 ?
             (playerHealth = playerHealth += skeletonAttack,
-                console.log(`${"you have "}${potions} ${" potions"}`),
-                console.log(skeletonReward),
                 potions = potions += skeletonReward,
                 reward.textContent = `${"The skeleton dropped"} ${skeletonReward} ${" potions"}`,
-                console.log(`${"you now have "} ${potions} ${" potions"}`),
                 inventoryContent2.textContent = potionSent,
                 randomMonster = Math.round(Math.random() * 2),
                 experiencePoints = experiencePoints += skeletonXp,
@@ -217,19 +212,15 @@ const enemyDefeated = () => {
                 experienceReward.textContent = `${"You gained "} ${skeletonXp} ${" experience points"} `) :
             randomMonster == 2 ?
                 (playerHealth = playerHealth += giantAttack,
-                    console.log(playerHealth),
-                    console.log(`${"you have "}${potions} ${" potions"}`),
-                    console.log(giantAttack),
                     potions = potions += giantReward,
                     reward.textContent = `${"The giant dropped"} ${giantReward} ${" potions"}`,
-                    console.log(`${"you now have "} ${potions} ${" potions"}`),
                     inventoryContent2.textContent = potionSent,
                     randomMonster = Math.round(Math.random() * 2),
                     experiencePoints = experiencePoints += giantXp,
                     xp3.textContent = `${"xp: "}${experiencePoints}`,
                     experienceReward.textContent = `${"You gained "} ${giantXp} ${" experience points"} `) :
                 console.log("error")
-    experiencePoints >= 1000 & level == 1 ?
+    experiencePoints >= 100 & level == 1 ?
         levelUp() :
         console.log("error")
 }
@@ -269,7 +260,6 @@ const archer = () => {
     page2.style.display = "block"
     classType = 3
     pHealth.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
-
 }
 
 const back = () => {
@@ -298,11 +288,12 @@ const monsterHealth = () => {
 const damage = () => {
     buttonPress++
     damageNumber = Math.round(Math.random() * 20)
+    damageNumber2 = Math.round(Math.random() * 25 + 5)
     goblinAttack = Math.round(Math.random() * 10)
     skeletonAttack = Math.round(Math.random() * 13)
     giantAttack = Math.round(Math.random() * 17)
     hide.style.display = "block"
-    damageNumber === 0 & buttonPress == 1 ?
+    damageNumber === 0 & buttonPress == 1 & level === 1 ?
         (playerAttack.textContent = `${"You missed LMAO!!!"}`,
             nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
             myTimeout2 = setTimeout(dead, 2000),
@@ -317,7 +308,22 @@ const damage = () => {
                     nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
                     myTimeout2 = setTimeout(dead, 2000),
                     myTimeout3 = setTimeout(win, 500)) :
-                console.log("Error")
+                level === 2 ?
+                    (playerAttack.textContent = `${"You missed LMAO!!!"}`,
+                        nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
+                        myTimeout2 = setTimeout(dead, 2000),
+                        myTimeout3 = setTimeout(win, 500)) :
+                    damageNumber2 > 0 & damageNumber2 <= 17 & buttonPress == 1 ?
+                        (playerAttack.textContent = `${"You deal"} ${damageNumber2} ${"damage"} `,
+                            nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
+                            myTimeout2 = setTimeout(dead, 2000),
+                            myTimeout3 = setTimeout(win, 500)) :
+                        damageNumber2 >= 18 & damageNumber2 <= 25 & buttonPress == 1 ?
+                            (playerAttack.textContent = `${"Critical hit!!"} ${"you deal"} ${damageNumber2} ${"damage!!!"} `,
+                                nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
+                                myTimeout2 = setTimeout(dead, 2000),
+                                myTimeout3 = setTimeout(win, 500)) :
+                            console.log("error")
 }
 
 const nEnemyHealth = () => {
@@ -352,9 +358,9 @@ const enemyAttack = () => {
 }
 
 
-const playerHealth4 = () => {
-    pHealth4.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
-}
+// const playerHealth4 = () => {
+//     pHealth4.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
+// }
 
 const levelUp = () => {
     level++
@@ -363,3 +369,5 @@ const levelUp = () => {
     pLevel3.textContent = `${"Level: "}${level}`
     pLevel4.textContent = `${"Level: "}${level}`
 }
+
+
