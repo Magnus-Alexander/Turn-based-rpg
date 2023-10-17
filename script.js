@@ -21,6 +21,10 @@ let xp2 = document.getElementById("xp2")
 let xp3 = document.getElementById("xp3")
 let xp4 = document.getElementById("xp4")
 let experienceReward = document.getElementById("experienceReward")
+let pLevel = document.getElementById("pLevel")
+let pLevel2 = document.getElementById("pLevel2")
+let pLevel3 = document.getElementById("pLevel3")
+let pLevel4 = document.getElementById("pLevel4")
 
 let goblinAttack = Math.round(Math.random() * 10)
 let skeletonAttack = Math.round(Math.random() * 13)
@@ -52,6 +56,7 @@ let orcXp = 600
 
 let playerHealth = 50
 let experiencePoints = 0
+let level = 1
 let classType = 0
 let page = 0
 let inventoryPage = 0
@@ -139,6 +144,15 @@ const addHealth = () => {
             console.log("")
 }
 
+const hideButton = () => {
+    xp.textContent = `${"xp: "}${experiencePoints}`
+    pLevel4.textContent = `${"Level: "}${level}`
+    pLevel.textContent = `${"Level: "}${level}`
+    page1 = document.getElementById("page1")
+    page1.style.display = "none"
+    page = 2
+}
+
 const walkButton = () => {
     monsterHealth()
     page = 3
@@ -157,13 +171,8 @@ const walkButton = () => {
         skeletonHealth = 40,
         giantHealth = 60) :
         console.log("")
-}
-
-const hideButton = () => {
-    xp.textContent = `${"xp: "}${experiencePoints}`
-    let page1 = document.getElementById("page1")
-    page1.style.display = "none"
-    page = 2
+    pLevel2.textContent = `${"Level: "}${level}`
+    pLevel3.textContent = `${"Level: "}${level}`
 }
 
 const gameOver = () => {
@@ -220,6 +229,9 @@ const enemyDefeated = () => {
                     xp3.textContent = `${"xp: "}${experiencePoints}`,
                     experienceReward.textContent = `${"You gained "} ${giantXp} ${" experience points"} `) :
                 console.log("error")
+    experiencePoints >= 1000 & level == 1 ?
+        levelUp() :
+        console.log("error")
 }
 
 const dead = () => {
@@ -231,7 +243,7 @@ const win = () => {
     goblinHealth <= 0 || skeletonHealth <= 0 || giantHealth <= 0 ?
         enemyDefeated() :
         console.log("")
-    myTimeout4 = setTimeout(playerHealth4, 2000)
+    myTimeout4 = setTimeout(playerHealth4, 1000)
     xp3.textContent = `${"xp: "}${experiencePoints}`
 }
 
@@ -342,4 +354,12 @@ const enemyAttack = () => {
 
 const playerHealth4 = () => {
     pHealth4.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
+}
+
+const levelUp = () => {
+    level++
+    pLevel.textContent = `${"Level: "}${level}`
+    pLevel2.textContent = `${"Level: "}${level}`
+    pLevel3.textContent = `${"Level: "}${level}`
+    pLevel4.textContent = `${"Level: "}${level}`
 }
