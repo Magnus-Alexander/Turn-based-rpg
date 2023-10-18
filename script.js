@@ -43,9 +43,9 @@ let orcHealth = 70
 let randomMonster = Math.round(Math.random() * 2)
 let randomMonster2 = Math.round(Math.random() * 4)
 
-let goblinReward = Math.round(Math.random() * 1 + 1)
-let skeletonReward = Math.round(Math.random() * 2 + 1)
-let giantReward = Math.round(Math.random() * 3 + 1)
+let goblinReward = Math.round(Math.random() * 1)
+let skeletonReward = Math.round(Math.random() * 1 + 1)
+let giantReward = Math.round(Math.random() * 2 + 1)
 
 let goblinXp = 10
 let skeletonXp = 20
@@ -231,10 +231,10 @@ const dead = () => {
 }
 
 const win = () => {
+    myTimeout4 = setTimeout(playerHealth4, 1000)
     goblinHealth <= 0 || skeletonHealth <= 0 || giantHealth <= 0 ?
         enemyDefeated() :
         console.log("")
-    myTimeout4 = setTimeout(playerHealth4, 1000)
     xp3.textContent = `${"xp: "}${experiencePoints}`
 }
 
@@ -358,9 +358,9 @@ const enemyAttack = () => {
 }
 
 
-// const playerHealth4 = () => {
-//     pHealth4.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
-// }
+const playerHealth4 = () => {
+    pHealth4.textContent = `${classArray[classType]} ${"hp: "}${playerHealth} `
+}
 
 const levelUp = () => {
     level++
