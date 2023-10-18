@@ -231,9 +231,9 @@ const dead = () => {
 }
 
 const win = () => {
-    myTimeout4 = setTimeout(playerHealth4, 1000)
     goblinHealth <= 0 || skeletonHealth <= 0 || giantHealth <= 0 ?
-        enemyDefeated() :
+        (myTimeout4 = setTimeout(playerHealth4, 2000),
+            enemyDefeated()) :
         console.log("")
     xp3.textContent = `${"xp: "}${experiencePoints}`
 }
@@ -293,7 +293,7 @@ const damage = () => {
     skeletonAttack = Math.round(Math.random() * 13)
     giantAttack = Math.round(Math.random() * 17)
     hide.style.display = "block"
-    damageNumber === 0 & buttonPress == 1 & level === 1 ?
+    damageNumber === 0 & buttonPress == 1 ?
         (playerAttack.textContent = `${"You missed LMAO!!!"}`,
             nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
             myTimeout2 = setTimeout(dead, 2000),
@@ -308,22 +308,7 @@ const damage = () => {
                     nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
                     myTimeout2 = setTimeout(dead, 2000),
                     myTimeout3 = setTimeout(win, 500)) :
-                level === 2 ?
-                    (playerAttack.textContent = `${"You missed LMAO!!!"}`,
-                        nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
-                        myTimeout2 = setTimeout(dead, 2000),
-                        myTimeout3 = setTimeout(win, 500)) :
-                    damageNumber2 > 0 & damageNumber2 <= 17 & buttonPress == 1 ?
-                        (playerAttack.textContent = `${"You deal"} ${damageNumber2} ${"damage"} `,
-                            nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
-                            myTimeout2 = setTimeout(dead, 2000),
-                            myTimeout3 = setTimeout(win, 500)) :
-                        damageNumber2 >= 18 & damageNumber2 <= 25 & buttonPress == 1 ?
-                            (playerAttack.textContent = `${"Critical hit!!"} ${"you deal"} ${damageNumber2} ${"damage!!!"} `,
-                                nEnemyHealth(), myTimeout = setTimeout(enemyAttack, 1000),
-                                myTimeout2 = setTimeout(dead, 2000),
-                                myTimeout3 = setTimeout(win, 500)) :
-                            console.log("error")
+                console.log("error")
 }
 
 const nEnemyHealth = () => {
@@ -369,5 +354,3 @@ const levelUp = () => {
     pLevel3.textContent = `${"Level: "}${level}`
     pLevel4.textContent = `${"Level: "}${level}`
 }
-
-
