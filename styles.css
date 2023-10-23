@@ -80,63 +80,21 @@ p {
   font-size: 50px;
 }
 
+#eAttack,
+#xp2,
+#xp3,
+#xp4,
+#experienceReward,
+#pLevel2,
+#pLevel3,
+#pLevel4,
+#newEnemyHealth,
+#playerAttack,
+#mHealth,
+#reward,
+#pHealth4,
+#pHealth3,
+#pHealth2,
 #pHealth {
-  font-size: 30px;
-}
-#pHealth2 {
-  font-size: 30px;
-}
-
-#pHealth3 {
-  font-size: 30px;
-}
-#pHealth4 {
-  font-size: 30px;
-}
-
-#reward{
-  font-size: 30px;
-}
-
-#mHealth {
-  font-size: 30px;
-}
-
-#playerAttack {
-  font-size: 30px;
-}
-
-#newEnemyHealth {
-  font-size: 30px;
-}
-
-#eAttack {
-  font-size: 30px;
-}
-
-#xp2{
-  font-size: 30px;
-}
-
-#xp3{
-  font-size: 30px;
-}
-#xp4{
-  font-size: 30px;
-}
-
-#experienceReward{
-  font-size: 30px;
-}
-
-#pLevel2{
-  font-size: 30px;
-}
-
-#pLevel3{
-  font-size: 30px;
-}
-
-#pLevel4{
   font-size: 30px;
 }
